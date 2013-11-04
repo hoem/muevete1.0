@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/muevete">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="5" maxWait="10000" name="jdbc/muevete" password="adi" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/muevete?autoReconnect=true" username="root"/>
+  <!-- El atributo localDataSource indica que el DataSource es propio de la app y no global a Tomcat
+    si se omite no encuentra el DataSource, ya que lo asume global por defecto
+    http://tomcat.apache.org/tomcat-7.0-doc/config/realm.html -->
+  <Realm className="org.apache.catalina.realm.DataSourceRealm" dataSourceName="jdbc/muevete" localDataSource="true" roleNameCol="rol" userCredCol="password" userNameCol="login" userRoleTable="Usuario" userTable="Usuario"/>
+</Context>

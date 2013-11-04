@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usuario</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div id="id_logo-content" class="logo-content">
+    <img id="id_logo" class="logo" alt="muevete" src="img/muevetelogo.gif">
+</div>
+    <div id="div-content-usuario" class="content">
+        <div id="nav-barusuario" class="nav-bar"></div>
+        <div id="id_usuario-cotent" class="usuario-content">
+            <div id="id_user" class="profile">
+                <div id="h2user-content" class="h2tittle">
+                    <h2 id="id_tittleuser" class="textTittle">Usuario</h2>
+                </div>
+                {{#usuario}}
+                <div id="id_imguser-content" class="img-content">
+                    <img id="id_imguser" class="imgprofile" alt="{{login}}" src="img/perfiles/{{login}}.jpg">
+                </div>
+                <div class="datauser">
+                    <div class="datauserprofile">
+                        {{nombre}}
+                        {{apellidos}}
+                    </div>
+                </div>
+                {{/usuario}}
+            </div>
+            <div id="id_newactions" class="table-content">
+                <h2 id="id_newactionstittle" class="textTittle">Acciones recientes</h2>
+                <table>
+                    <tr>
+                        <td>
+                            Creo la petición
+                        </td>
+                        <td>
+                            Petición por un dia
+                        </td>
+                        <td>
+                            Hace 1 dia
+                        </td>
+                        <td style="width: 16%">
+                            <img id="id_imgnewaction" class="imgcomment" alt="peticion" src="img/peticiones/1.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="id_validator3" class="validator">
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                     alt="¡CSS Válido!" />
+            </a>
+        </p>
+    </div>
+</body>
+</html>

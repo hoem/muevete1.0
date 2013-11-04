@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Muevete</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+<div id="id_logo-content" class="logo-content">
+    <img id="id_logo" class="logo" alt="muevete" src="img/muevetelogo.gif">
+</div>
+    <div id="div_content-index" class="content">
+        <div id="groupLoginForm" class="groupform">
+            <div id="overLogin" class="overbox">
+                <form id="login-form" class="aui-form">
+                    <h1 id="id_loginTitle" class="textTittle">Login</h1>
+                    <hr>
+                    <br />
+                    <label id="id_labeluser" class="text">Usuario</label>
+                    <input id="id_user" class="form" type="email" pattern="[^ @]*@[^ @]*" autofocus="autofocus" name="username">
+                    <div id="id_errorUserLogin" class="error" style="display:none">Campo usuario no puede ser vacio</div>
+                    <label id="id_labelpass" class="text">Contraseña</label>
+                    <input id="id_pass" class="form" type="password" name="password">
+                    <div id="id_errorPassLogin" class="error" style="display:none">Campo contraseña no pude ser vacio</div>
+                    <a id="id_linkEnterLogin" class="linkEnter" href="javascript:userLogin();">Enter</a>
+                    <a id="id_linkCancelLogin" class="linkEnter" href="javascript:hideLightboxLogin();">Cancelar</a>
+                </form>
+            </div>
+            <div id="fadeLogin" class="fadebox">&nbsp;</div>
+        </div>
+
+        <div id="groupRegisterForm" class="groupForm">
+            <div id="overRegister" class="overbox">
+                <form id="register-form" class="aui-form">
+                    <h1 id="id_regTitle" class="textTittle">Registro</h1>
+                    <hr>
+                    <input id="id_regname" class="form" type="text" name="nombre" placeholder="Nombre">
+                    <div id="id_errorNameReg" class="error" style="display:none">Campo nombre no puede ser vacio</div>
+                    <input id="id_reg2name" class="form" type="text" name="apellido" placeholder="Apellidos">
+                    <div id="id_error2NameReg" class="error" style="display:none">Campo apellidos no puede ser vacio</div>
+                    <input id="id_regmail" class="form" type="email" pattern="[^ @]*@[^ @]*" name="regusername" placeholder="Email" onchange="loginDisponible();">
+                    <div id="id_errorMailReg" class="error" style="display:none">Campo email no puede ser vacio</div>
+                    <div id="id_loginrepe" class="error" style="display: none">Este email ya esta siendo utilizado</div>
+                    <input id="id_regpass" class="form" type="password" name="regpassword" placeholder="Password">
+                    <div id="id_errorPassReg" class="error" style="display:none">Campo contraseña no puede ser vacio</div>
+                    <input id="id_regpass2" class="form" type="password" name="regpassword2" placeholder="Confirmar Password">
+                    <div id="id_error2PassReg" class="error" style="display:none">Las contraseñas no cohinciden</div>
+                    <a id="id_linkEnterRegister" class="linkEnter" href="javascript:userRegister();">Registrar</a>
+                    <a id="id_linkCancelReg" class="linkEnter" href="javascript:hideLightboxReg();">Cancelar</a>
+                </form>
+            </div>
+            <div id="fadeRegister" class="fadebox">&nbsp;</div>
+        </div>
+
+        <div id="groupNewSingnature" class="groupForm">
+            <div id="overNewSignature" class="overbox">
+                <form id="newSignature-form" class="aui-form">
+                    <h1 id="id_peticionTittle" class="textTittle">Nueva Peticion</h1>
+                    <hr>
+                    <input id="id_tituloPeticion" class="form" type="text" name="tituloPeticion" placeholder="Titulo">
+                    <input id="id_fechaEndPeticion" class="form" type="date" name="fechaFin" placeholder="Fecha de fin">
+                    <input id="id_NumFirmasPeticion" class="form" type="number" name="numFirmas" placeholder="Firmas necesarias">
+                    <textarea id="id_descripcionPeticion" class="form" name="descripcionPeticion" placeholder="Descripcion"></textarea>
+                    <a id="id_linkCreateSignature" class="linkEnter" href="javascript:crearPeticion();">Crear Peticion</a>
+                    <a id="id_linkCancelPeticion" class="linkEnter" href="javascript:hideLightboxPeticion();">Cancelar</a>
+                </form>
+            </div>
+            <div id="fadeNewSignature" class="fadebox">&nbsp;</div>
+        </div>
+
+        <div id="id_serverLog" class="serverLog" style="display: none"></div>
+
+        <div id="nav_barindex" class="nav-bar">
+            <div id="id_wellcome"></div>
+            <a id="id_logout" class="buttonlog" style="display: none" href="javascript:userLogout();">Logout</a>
+            <a id="id_newSignature" class="buttonlog" style="display: none" href="javascript:showLightboxPeticion();">Nueva Peticion</a>
+            <a id="id_login" class="buttonlog" href="javascript:showLightboxLogin();">Login</a>
+            <a id="id_register" class="buttonlog" href="javascript:showLightboxReg();">Register</a>
+        </div>
+
+        <div id="div_outstanding" class="outstanding-content">
+            {{#destacadas}}
+            <div id="id_outstanding" class="outstanding">
+                <img id="id_imgpeticiones" class="imgpeticiones" src="img/peticiones/{{id}}.jpg" alt="{{titulo}}">
+                <p id="id_outstanding-tittle" class="tittleoutstanding">{{titulo}}</p>
+                <div id="id_footerOutstanding" class="footeroutstanding">
+                    Firmas conseguidas: {{firmasConseguidas}}
+                    <a id="id_peticion" class="peticion" href="peticion?id={{id}}">Ver peticion</a>
+                </div>
+            </div>
+            {{/destacadas}}
+
+        </div>
+    </div>
+    <div id="id_validator1" class="validator">
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                     alt="¡CSS Válido!" />
+            </a>
+        </p>
+    </div>
+
+    <script type="text/javascript" src="functions.js"></script>
+</body>
+</html>
